@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'home_page/index'
+  
   devise_for :managers
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  root to: "home_page#index"
 end
