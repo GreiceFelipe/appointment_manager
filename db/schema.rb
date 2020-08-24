@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_22_201716) do
+ActiveRecord::Schema.define(version: 2020_08_24_200118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "doctors", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.string "crm", default: "", null: false
+    t.string "crm_uf", default: "", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["crm", "crm_uf"], name: "index_doctors_on_crm_and_crm_uf", unique: true
+  end
 
   create_table "managers", force: :cascade do |t|
     t.string "email", default: "", null: false
