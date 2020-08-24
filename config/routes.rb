@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   devise_for :managers
 
   root to: "home_page#index"
+
+  resources :doctors, except: [ :show ]
+
 end

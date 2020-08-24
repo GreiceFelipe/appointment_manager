@@ -1,2 +1,11 @@
-<h1>Home Page</h1>
+<section class="section">
+  <% if notice.present? %>
+    <div class="notification is-info is-light">
+      <p id="notice"><%= notice %></p>
+    </div>
+  <% end %>
+
+  <h1>Home Page</h1>
+</section>
+
 

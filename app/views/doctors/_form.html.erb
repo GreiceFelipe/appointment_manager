@@ -1,0 +1,47 @@
+<%= form_with(model: doctor, local: true) do |form| %>
+  <% if doctor.errors.any? %>
+    <div id="error_explanation" class="notification is-danger is-light">
+      <h2><%= pluralize(doctor.errors.count, "error") %> prohibited this doctor from being saved:</h2>
+
+      <ul>
+        <% doctor.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <p class="control has-icons-left">
+      <%= form.text_field :name, class: "input", placeholder: "Full name" %>
+      <span class="icon is-small is-left">
+        <i class="fa fa-user-md"></i>
+      </span>
+    </p>
+  </div>
+
+  <div class="field">
+    <p class="control has-icons-left">
+      <%= form.text_field :crm, class: "input", placeholder: "CRM" %>
+      <span class="icon is-small is-left">
+        <i class="far fa-address-card"></i>
+      </span>
+    </p>
+  </div>
+
+  <div class="field">
+    <p class="control has-icons-left">
+      <%= form.text_field :crm_uf, class: "input", placeholder: "CRM UF" %>
+      <span class="icon is-small is-left">
+        <i class="fas fa-flag"></i>
+      </span>
+    </p>
+  </div>
+
+  <br/>
+  <div class="field">
+    <p class="control center">
+      <%= form.submit nil, class: 'button is-fullwidth is-rounded is-primary'%>
+    </p>
+  </div>
+<% end %>

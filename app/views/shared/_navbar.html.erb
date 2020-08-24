@@ -1,4 +1,4 @@
-<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
   <div class="container">
     <div class="navbar-brand">
       <a class="navbar-item" href="/">
@@ -14,20 +14,34 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
+        <div class="navbar-item">
+          <div class="field is-grouped">
+            <p class="control">
+              <%= link_to doctors_path, class: 'button is-primary' do %>
+                <span class="icon">
+                  <i class="fas fa-user-md"></i>
+                </span>
+                <span>Doctors</span>
+              <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
       </div>
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
             <% unless manager_signed_in? %>
-              <a class="button is-primary" href='/managers/sign_up'>
-                <strong>Cadastre-se</strong>
+              <a class="button is-light" href='/managers/sign_up'>
+                <strong>Sign up</strong>
               </a>
-              <a class="button is-light" href='/managers/sign_in'>
-                Entrar
+              <a class="button is-link" href='/managers/sign_in'>
+                Login
               </a>
             <% end %>  
             <% if manager_signed_in? %>
-              <%= link_to "Sair", destroy_manager_session_path, method: :delete, class: 'button is-light'  %>
+              <%= link_to "Logout", destroy_manager_session_path, method: :delete, class: 'button is-light'  %>
             <% end %>
           </div>
         </div>
