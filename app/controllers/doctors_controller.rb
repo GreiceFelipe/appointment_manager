@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
+# app/controllers/doctors_controller.rb
 class DoctorsController < ApplicationController
-  before_action :set_doctor, only: [:edit, :update, :destroy]
+  before_action :set_doctor, only: %i[edit update destroy]
 
   # GET /doctors
   # GET /doctors.json
@@ -13,8 +16,7 @@ class DoctorsController < ApplicationController
   end
 
   # GET /doctors/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /doctors
   # POST /doctors.json
@@ -45,7 +47,7 @@ class DoctorsController < ApplicationController
   # DELETE /doctors/1
   # DELETE /doctors/1.json
   def destroy
-    # TODO 3.1 MENSAGE 
+    # TODO: 3.1 MENSAGE
     @doctor.destroy
     respond_to do |format|
       format.html { redirect_to doctors_url, notice: 'Doctor was successfully destroyed.' }
@@ -53,13 +55,14 @@ class DoctorsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_doctor
-      @doctor = Doctor.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def doctor_params
-      params.require(:doctor).permit(:name, :crm, :crm_uf)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_doctor
+    @doctor = Doctor.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def doctor_params
+    params.require(:doctor).permit(:name, :crm, :crm_uf)
+  end
 end
