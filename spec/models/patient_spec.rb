@@ -1,10 +1,11 @@
-require 'rails_helper'
+# frozen_string_literal: true
 
-RSpec.describe Patient, type: :model do
+require('rails_helper')
+
+RSpec.describe(Patient, type: :model) do
   it { is_expected.to(validate_presence_of(:name)) }
   it { is_expected.to(validate_presence_of(:birth_date)) }
   it { is_expected.to(validate_presence_of(:cpf)) }
-
 
   describe 'Validates' do
     let(:patient) { create(:patient) }
@@ -16,7 +17,7 @@ RSpec.describe Patient, type: :model do
     context 'with invalid CPF' do
       let(:invalid_patient) { build(:patient, cpf: '1123') }
 
-      it { expect(invalid_patient).not_to be_valid }
+      it { expect(invalid_patient).not_to(be_valid) }
     end
   end
 end
