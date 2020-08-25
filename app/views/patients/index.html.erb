@@ -1,0 +1,45 @@
+<section class="section">
+  <% if notice.present? %>
+    <div class="notification is-info is-light">
+      <p id="notice"><%= notice %></p>
+    </div>
+  <% end %>
+
+  <div class="container column is-half is-mobile">
+    <h1 class="is-size-3 is-size-4-mobile has-text-centered"><i class="fas fa-user-injured"></i> Patients</h1>
+  </div>
+
+  <div class="column is-three-fifths is-offset-one-fifth is-mobile">
+    <div class="column is-10 is-offset-2">
+      <div class="column is-3">
+        <%= link_to 'New Patient', new_patient_path, class: "button is-fullwidth is-rounded is-outlined is-primary" %>
+      </div>
+      <br>
+      <div class="table-container">
+        <table class="table is-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Birth date</th>
+              <th>Cpf</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @patients.each do |patient| %>
+              <tr>
+                <td><%= patient.name %></td>
+                <td><%= patient.birth_date %></td>
+                <td><%= patient.cpf %></td>
+                <td><%= link_to 'Edit', edit_patient_path(patient), class: "button is-fullwidth is-rounded is-outlined is-info" %></td>
+                <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-fullwidth is-rounded is-outlined is-danger" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+  </div>
+</section>

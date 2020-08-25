@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   root to: "home_page#index"
 
   resources :doctors, except: [ :show ]
+  resources :patients, except: [ :show ]
 
 end
