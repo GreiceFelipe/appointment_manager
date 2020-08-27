@@ -1,0 +1,72 @@
+<section class="section">
+  <% if notice.present? %>
+    <div class="notification is-info is-light">
+      <p id="notice"><%= notice %></p>
+    </div>
+  <% end %>
+
+  <div class="container column is-half is-mobile">
+    <h1 class="is-size-3 is-size-4-mobile has-text-centered"> <i class="fas fa-chart-line"></i> Dashboard</h1>
+  </div>
+
+
+  <div class="container column is-half is-mobile">
+    <%= form_tag(root_path, method: :get) do %>
+      <div class="columns">
+        <div class="column is-four-fifths">
+          <p class="control has-icons-left is-expanded">
+            <span class="select is-fullwidth">
+              <%= select_tag(
+                    :doctor_id, 
+                    options_for_select(@options, selected: params[:doctor_id]), 
+                    {include_blank: 'All Doctors'}) %>
+            </span>
+            <span class="icon is-small is-left">
+              <i class="fas fa-user-md"></i>
+            </span>
+          </p>
+        </div>
+        <div class="column">
+          <%= submit_tag 'Search', name: nil, class: "button is-fullwidth is-rounded is-black" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="column is-three-fifths is-offset-one-fifth is-mobile">
+    <div class="column">
+
+      <div class="columns">
+        <div class="column is-6">
+          <section class="hero is-link">
+            <div class="hero-body">
+              <div class="container">
+                <h1 class="title">
+                  <%= @total_appointments %>
+                </h1>
+                <h2 class="subtitle">
+                  Total appointments
+                </h2>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="column is-6">
+          <section class="hero is-info">
+            <div class="hero-body">
+              <div class="container">
+                <h1 class="title">
+                  <%= @patients_treated %>
+                </h1>
+                <h2 class="subtitle">
+                  Patients treated
+                </h2>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
