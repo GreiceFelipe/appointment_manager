@@ -1,24 +1,35 @@
-# README
+# Appointment Manager
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple application for registering doctors, patients and making appointments.
 
-Things you may want to cover:
+* Ruby version 2.6.3
 
-* Ruby version
+* Rails version 6.0.3
 
-* System dependencies
+* PostgreSQL 
 
-* Configuration
+* Rspec rails version 4.0.1
 
-* Database creation
+### Configuration
 
-* Database initialization
+Run `bundle install` to to install all the rails dependencies
 
-* How to run the test suite
+Run `yarn install --check-files ` to install all nodes dependencies
 
-* Services (job queues, cache servers, search engines, etc.)
+In the development environment create the `.evn` file using `.env.example` as an example
 
-* Deployment instructions
+### Database creation
 
-* ...
+To create database run `rails db:create`  
+
+### Database initialization
+
+To create all tables in database run `rails db:migrate`
+
+### How to run the test suite
+
+To run models test `rspec` 
+
+#### Others
+
+Run `rubocop` to view all rubocop offences
