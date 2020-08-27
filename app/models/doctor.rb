@@ -15,9 +15,9 @@ class Doctor < ApplicationRecord
   private
 
   def check_for_appointments
-    if appointments.present?
-      errors.add(:appointments, "cannot delete doctor while appointments exist")
-      throw :abort
+    unless appointments.blank? # rubocop:disable Style/GuardClause
+      errors.add(:base, 'cannot delete doctor while appointments exist')
+      throw(:abort)
     end
   end
 end

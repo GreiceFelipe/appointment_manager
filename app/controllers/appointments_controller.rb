@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
+# app/controllers/appointments_controller.rb
 class AppointmentsController < ApplicationController
-  before_action :set_appointment, only: [:edit, :update]
+  before_action :set_appointment, only: %i[edit update]
 
   # GET /appointments
   # GET /appointments.json
@@ -13,8 +16,7 @@ class AppointmentsController < ApplicationController
   end
 
   # GET /appointments/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /appointments
   # POST /appointments.json
@@ -43,13 +45,14 @@ class AppointmentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_appointment
-      @appointment = Appointment.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def appointment_params
-      params.require(:appointment).permit(:starts_at, :ends_at, :patient_id, :doctor_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_appointment
+    @appointment = Appointment.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def appointment_params
+    params.require(:appointment).permit(:starts_at, :ends_at, :patient_id, :doctor_id)
+  end
 end

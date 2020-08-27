@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :appointment do
     starts_at { Time.new(2015, 8, 1, 10, 0, 0) }
