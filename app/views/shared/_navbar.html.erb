@@ -32,6 +32,22 @@
                 <span>Patients</span>
               <% end %>
             </p>
+            <p class="control">
+              <%= link_to appointments_path, class: 'button is-primary' do %>
+                <span class="icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span>Appointments</span>
+              <% end %>
+            </p>
+            <p class="control">
+              <%= link_to root_path, class: 'button is-primary' do %>
+                <span class="icon">
+                  <i class="fas fa-chart-line"></i>
+                </span>
+                <span>Dashboard</span>
+              <% end %>
+            </p>
           </div>
         </div>
       </div>

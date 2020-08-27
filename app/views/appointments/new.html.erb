@@ -1,0 +1,13 @@
+<section class="section">
+    <div class="container column is-half">
+        <h1 class="is-size-3 is-size-4-mobile has-text-centered">New Appointment</h1>
+    </div>
+    
+    <div class="container column is-half">
+        <%= render 'form', appointment: @appointment %>
+    </div>
+
+    <div class="container column is-one-fifth center">
+        <%= link_to 'Back', appointments_path, class: "button is-fullwidth is-rounded is-outlined is-link" %>
+    </div>
+</section>

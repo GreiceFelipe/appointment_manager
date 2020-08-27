@@ -1,0 +1,52 @@
+<%= form_with(model: appointment, local: true) do |form| %>
+  <% if appointment.errors.any? %>
+    <div id="error_explanation" class="notification is-danger is-light">
+      <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+
+      <ul>
+        <% appointment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <label class="label">Starts at: </label>
+    <p class="control has-icons-left">
+      <%= form.datetime_field :starts_at, class: "input" %>
+      <span class="icon is-small is-left">
+        <i class="far fa-calendar-alt"></i>
+      </span>
+    </p>
+  </div>
+
+  <div class="field">
+    <p class="control has-icons-left is-expanded">
+      <span class="select is-fullwidth">
+        <%= form.collection_select(:patient_id, Patient.all, :id, :name, {include_blank: 'Select a Patient'}) %>
+      </span>
+      <span class="icon is-small is-left">
+        <i class="fas fa-user-injured"></i>
+      </span>
+    </p>
+  </div>
+
+  <div class="field">
+    <p class="control has-icons-left is-expanded">
+      <span class="select is-fullwidth">
+        <%= form.collection_select(:doctor_id, Doctor.all, :id, :name, {include_blank: 'Select a Doctor'}) %>
+      </span>
+      <span class="icon is-small is-left">
+        <i class="fas fa-user-md"></i>
+      </span>
+    </p>
+  </div>
+
+  <br/>
+  <div class="field">
+    <p class="control center">
+      <%= form.submit nil, class: 'button is-fullwidth is-rounded is-primary' %>
+    </p>
+  </div>
+<% end %>

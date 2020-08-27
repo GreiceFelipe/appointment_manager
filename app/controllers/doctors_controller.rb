@@ -48,9 +48,15 @@ class DoctorsController < ApplicationController
   # DELETE /doctors/1.json
   def destroy
     # TODO: 3.1 MENSAGE
-    @doctor.destroy
-    respond_to do |format|
-      format.html { redirect_to doctors_url, notice: 'Doctor was successfully destroyed.' }
+
+    if @doctor.destroy
+      respond_to do |format|
+        format.html { redirect_to doctors_url, notice: 'Doctor was successfully destroyed.' }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to doctors_url, alert: @doctor.errors.full_messages.first }
+      end
     end
   end
 
